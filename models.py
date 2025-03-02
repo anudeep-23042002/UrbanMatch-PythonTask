@@ -1,4 +1,4 @@
-from sqlalchemy import Column, Integer, String, ARRAY
+from sqlalchemy import Column, Integer, String, Text, Boolean
 from database import Base
 
 class User(Base):
@@ -10,5 +10,7 @@ class User(Base):
     gender = Column(String)
     email = Column(String, unique=True, index=True)
     city = Column(String, index=True)
-    interests = Column(ARRAY(String))
+    is_verified = Column(Boolean, default=False)
+    interests = Column(Text, default="[]")
+
 
